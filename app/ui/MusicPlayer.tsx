@@ -5,9 +5,10 @@ import Waveform from "./Waveform";
 type Props = {
     trackName: string;
     track: HTMLAudioElement;
+    trackBuffer: AudioBuffer;
 }
 
-export default function MusicPlayer({ trackName, track }: Props) {
+export default function MusicPlayer({ trackName, track, trackBuffer }: Props) {
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
     const togglePlayPause = (e: React.MouseEvent<HTMLElement>) => {
@@ -34,7 +35,7 @@ export default function MusicPlayer({ trackName, track }: Props) {
                     {trackName}
                 </span>
             </div>
-            <Waveform track={track} />
+            <Waveform trackBuffer={trackBuffer} />
         </div>
     )
 }

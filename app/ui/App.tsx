@@ -18,11 +18,12 @@ export default function App() {
       audioRef.current.currentTime = 0;
     }
     const url = URL.createObjectURL(file);
+    audioRef.current = new Audio(url);
+
     const audioContext = new AudioContext();
     const arrayBuffer = await file.arrayBuffer();
     const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
-    console.log(audioBuffer);
-    audioRef.current = new Audio(url)
+
     setAudioUrl(url);
     setAudioName(file.name);
     setAudioBuffer(audioBuffer);
@@ -31,8 +32,8 @@ export default function App() {
   return (
     <>
       <FileUploader onFileUpload={handleFileUpload} />
-      {audioName && audioRef.current && (
-        <MusicPlayer trackName={audioName} track={audioRef.current} />
+      {audioName && audioRef.current && audioBuffer && (
+        <MusicPlayer trackName={audioName} track={audioRef.current} trackBuffer={audioBuffer} />
       )}
     </>
   );
