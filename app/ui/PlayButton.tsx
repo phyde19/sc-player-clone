@@ -8,17 +8,15 @@ type Props = {
 
 export default function PlayButton({ isPlaying, onPlayPause }: Props) {
 
-    const iconStyle = "text-gray-800 w-10 h-10";
-
     return (
         <button 
-            className="w-16 h-16 rounded-full bg-transparent border-[.5px] border-gray-600 flex items-center justify-center"
+            className="w-12 h-12 rounded-full bg-transparent border-[.5px] border-gray-600 flex items-center justify-center"
             onClick={onPlayPause} 
         >
             {isPlaying ? (
-                <PauseIcon className={`${iconStyle}`}/> 
+                <PauseIcon className="text-gray-800 w-6 h-6"/> 
             ) : (
-                <PlayIcon className={`${iconStyle} pl-1`}/>
+                <PlayIcon className="text-gray-800 w-7 h-7 pl-1"/>
             )}
         </button>
     )

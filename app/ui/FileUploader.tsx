@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useRef } from 'react';
 
 type Props = {
-    onFileUpload: (file: File) => void;
+    onFileUpload: (file: File) => Promise<void>;
 }
 
 export default function FileUploader({ onFileUpload }: Props) {
